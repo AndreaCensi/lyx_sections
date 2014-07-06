@@ -1,23 +1,35 @@
-from .misc_utils import wrap_script
-from lyx_sections.generate_generic import generate_index
-from lyx_sections.misc_utils import UserError
 from optparse import OptionParser
-from lyx_sections.generate_generic_templates import templates
- 
+import os
+
+from .generate_generic import generate_index
+from .generate_generic_templates import templates
+from .misc_utils import UserError
+from .misc_utils import wrap_script
+
+
 def lyx_gen(args):
 
     parser = OptionParser()
     
     parser.add_option("-o", "--output", help="Output file")
 
-    parser.add_option("-c", "--textclass", default='amsbook', help="LyX text class")
+    parser.add_option("-c", "--textclass", default='amsbook',
+                      help="LyX text class")
 
     parser.add_option("-p", "--pattern", help="File pattern",
                       default='*.lyx')
     
     parser.add_option("-P", "--preamble", help="Preamble section", default='')
     
-    options, which = parser.parse_args(args[1:])
+    params = args[1:]
+
+    if not params:
+        name = os.path.basename(args[0])
+        print('Usage:\n\t%s  -c [ %s ]'
+              '\n\t\t -p "<name>_*.lyx"\n\t\t -o <output>.lyx'
+              % (name, ' | '.join(templates.keys())))
+
+    options, which = parser.parse_args(params)
     
     if not options.output:
         msg = 'Please provide output argument with -o.'
