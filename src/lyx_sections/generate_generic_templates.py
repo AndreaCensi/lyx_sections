@@ -176,6 +176,11 @@ theorems-ams
 \color #000000
 \end_branch
 \branch conf
+\selected 1
+\filename_suffix 0
+\color #000000
+\end_branch
+\branch journal
 \selected 0
 \filename_suffix 0
 \color #000000
@@ -271,6 +276,11 @@ theorems-ams
 \use_refstyle 0
 \branch report
 \selected 0
+\filename_suffix 0
+\color #000000
+\end_branch
+\branch journal
+\selected 1
 \filename_suffix 0
 \color #000000
 \end_branch
@@ -374,8 +384,13 @@ theorems-ams
 \filename_suffix 0
 \color #000000
 \end_branch
-\branch conf
+\branch journal
 \selected 0
+\filename_suffix 0
+\color #000000
+\end_branch
+\branch conf
+\selected 1
 \filename_suffix 0
 \color #000000
 \end_branch
