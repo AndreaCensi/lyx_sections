@@ -23,7 +23,7 @@ ${preamble}
 \options onecolumn
 \use_default_options true
 \begin_modules
-theorems-ams
+theorems-ams-bytype
 eqs-within-sections
 figs-within-sections
 \end_modules
@@ -124,7 +124,7 @@ ${preamble}
 \end_preamble
 \use_default_options true
 \begin_modules
-theorems-ams
+theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -228,7 +228,7 @@ ${preamble}
 \options onecolumn
 \use_default_options true
 \begin_modules
-theorems-ams
+theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -333,7 +333,7 @@ ${preamble}
 \options letterpaper,conference,10pt
 \use_default_options true
 \begin_modules
-theorems-ams
+theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -437,7 +437,7 @@ ${preamble}
 \options onecolumn
 \use_default_options true
 \begin_modules
-theorems-ams
+theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -537,7 +537,7 @@ ${preamble}
 \options onecolumn
 \use_default_options true
 \begin_modules
-theorems-ams
+theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
