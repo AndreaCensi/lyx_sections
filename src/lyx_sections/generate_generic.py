@@ -5,6 +5,7 @@ from lyx_sections.misc_utils import UserError
 from lyx_sections.subst import substitute
 
 from . import logger
+from lyx_sections.natsorting import natsorted
 
 
 def generate(pattern, entry2value,
@@ -32,12 +33,13 @@ def generate_index(pattern, entry2value,
             chapters.remove(e)
 
     if not chapters:
-        raise UserError('Could not find any chapter matching %r' 
-            % pattern)
+        msg = 'Could not find any file matching %r.' % pattern
+        raise UserError(msg)
 
-    logger.info('Found %d: %s ' % (len(chapters), chapters))
+    s = "\n".join("  - %3d: %s" % (i + 1, c)  for i, c in enumerate(chapters))
+    logger.info('Found:\n%s ' % s)
 
-    chapters = sorted(chapters)
+    chapters = natsorted(chapters)
     main = create_lyx_file(chapters, entry2value, template_main, template_inset,
                            preamble=preamble)
     logger.debug('Done.')
