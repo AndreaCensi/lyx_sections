@@ -16,8 +16,7 @@ def lyx_gen(args):
     parser.add_option("-c", "--textclass", default='amsbook',
                       help="LyX text class")
 
-    parser.add_option("-p", "--pattern", help="File pattern",
-                      default='*.lyx')
+    parser.add_option("-p", "--pattern", help="File pattern")
     
     parser.add_option("-P", "--preamble", help="Preamble section", default='')
     
@@ -36,14 +35,17 @@ def lyx_gen(args):
         raise UserError(msg)
             
     if which:
-        msg = 'Spurious arguments: %s' % which
-        raise UserError(msg)
+        for f in which:
+            if not os.path.exists(f):
+                msg = 'File does not exist: %s' % f
+                raise UserError(msg)
 
 
     template_main = templates[options.textclass]
     
     main = generate_index(
         pattern=options.pattern,
+        extra_files=which,
         template_main=template_main,
         entry2value=lambda x: '%s' % x,
         exclude=['chapter.lyx', 'chapter0.lyx', 'chapter_contents.lyx'],
